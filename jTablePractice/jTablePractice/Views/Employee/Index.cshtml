@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+
+<div id="PersonTableContainer">
+
+</div>
+
+@section Scripts{
+
+    <script type="text/javascript">
+        //$(document).ready(function () {
+        $(function () {
+            $('#PersonTableContainer').jtable({
+                title: 'Student Table',
+                paging: true,
+                pageSize: 10,
+                sorting: true,
+                defaultSorting: 'Name ASC',
+                actions: {
+                    listAction: '/Employee/EmployeeList',
+                    createAction: '/Employee/CreateEmployee',
+                    updateAction: '/Employee/EditEmployee',
+                    deleteAction: '/Employee/DeleteEmployee'
+                },
+
+                fields: {
+                    EmployeeId: {
+                        key: true,
+                        list: false
+                    },
+                    Name: {
+                        title: 'Name',
+                        width: '40%'
+                    },
+                  
+                    Address: {
+                        title: 'Address',
+                        width: '20%'
+                    },
+
+                }
+            });
+            $('#PersonTableContainer').jtable('load');
+        });
+
+
+
+    </script>
+}
+
