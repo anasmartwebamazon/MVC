@@ -1,0 +1,76 @@
+﻿@model Uni_Practice.Models.CourseStudentEnroll
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>CourseStudentEnroll</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CourseId, "CourseId", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CourseId", String.Empty)
+                @Html.ValidationMessageFor(model => model.CourseId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StudentId, "StudentId", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("StudentId", String.Empty)
+                @Html.ValidationMessageFor(model => model.StudentId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EnrollDate, new { @class = "control-label col-md-2" })
+            
+            <div id="datetimepicker" class="col-md-10 input-append date">
+                <input type="text" id="EnrollDate" name="EnrollDate"></input>
+                <span class="add-on">
+                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+                </span>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Session, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Session)
+                @Html.ValidationMessageFor(model => model.Session)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<div class="alert alert-danger" role="alert">@ViewBag.Messege</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $('#datetimepicker').datetimepicker({
+            format: 'MM/dd/yyyy hh:mm:ss',
+            language: 'en'
+        });
+    </script>
+}

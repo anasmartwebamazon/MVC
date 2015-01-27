@@ -1,0 +1,58 @@
+﻿@model Uni_Practice.Models.CourseStudentEnroll
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CourseStudentEnroll</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Course.Code)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course.Code)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.RegistrationNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.RegistrationNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EnrollDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EnrollDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Session)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Session)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ObtainedNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ObtainedNumber)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CourseStudentEnrollId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
